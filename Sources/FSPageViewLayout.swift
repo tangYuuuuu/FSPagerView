@@ -9,7 +9,11 @@
 import UIKit
 
 class FSPagerViewLayout: UICollectionViewLayout {
-    
+    override var flipsHorizontallyInOppositeLayoutDirection: Bool {
+        get {
+            return UIView.userInterfaceLayoutDirection(for: UIView.appearance().semanticContentAttribute) == .rightToLeft
+        }
+    }
     internal var contentSize: CGSize = .zero
     internal var leadingSpacing: CGFloat = 0
     internal var itemSpacing: CGFloat = 0
